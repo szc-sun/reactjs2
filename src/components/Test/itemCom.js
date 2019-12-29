@@ -8,6 +8,8 @@ class itemCom extends React.Component {
 	}
 
 	render() {
+		console.log(123, this.props)
+		const { myData } = this.props
 		return (
 			<li>
 				<div>
@@ -17,8 +19,8 @@ class itemCom extends React.Component {
 					/>
 				</div>
 				<div>
-					<p>Nate</p>
-					<p>This is great Article</p>
+					<p>{myData.name}</p>
+					<p>{myData.title}</p>
 				</div>
 				<Button text="reply" />
 			</li>

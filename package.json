@@ -1,4 +1,23 @@
 {
+  "name": "reactjs2",
+  "description": "reactjs2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szc-sun/reactjs2.git"
+  },
+  "author": "sun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szc-sun/reactjs2/issues"
+  },
+  "homepage": "https://github.com/szc-sun/reactjs2#readme",
+  "scripts": {
+    "dev": "webpack --mode development --config config/webpack.config.dev.js",
+    "build": "webpack --mode production  --config config/webpack.config.prod.js",
+    "server": "webpack-dev-server --mode development --config config/webpack.config.dev.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-runtime": "^7.7.6",
@@ -27,11 +46,6 @@
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
-  },
-  "scripts": {
-    "dev": "webpack --mode development --config config/webpack.config.dev.js",
-    "build": "webpack --mode production  --config config/webpack.config.prod.js",
-    "server": "webpack-dev-server --mode development --config config/webpack.config.dev.js"
   },
   "dependencies": {
     "react": "^16.12.0",

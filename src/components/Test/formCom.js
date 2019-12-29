@@ -6,7 +6,8 @@ class formCom extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			test: 'aaa'
+			test: 'aaa',
+			textareaVal: ''
 		}
 		// this.changeState = this.changeState.bind(this)
 		console.log('constructor')
@@ -18,7 +19,10 @@ class formCom extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('componentDidMount')
+		console.log('componentDidMount', this.test)
+		// setInterval(() => {
+		// 	console.log('componentDidMount', this.test.value)
+		//  }, 3000)
 	}
 
 	UNSAFE_componentWillReceiveProps(nextProps) {
@@ -56,29 +60,50 @@ class formCom extends React.Component {
 		ReactDOM.unmountComponentAtNode(document.getElementById('app'))
 	}
 
+	changeTextarea(e) {
+		this.setState({
+			textareaVal: e.target.value
+		})
+	}
+
 	render() {
 		const { id } = this.props
-		const { test } = this.state
+		const { test, textareaVal } = this.state
 		console.log('render')
 		return (
 			<div className="form">
+				<div>受控组件</div>
 				<textarea
-					name=""
-					id=""
+					name="textareaVal"
+					id="textareaVal"
 					cols="160"
 					rows="10"
+					value={textareaVal}
+					onChange={this.changeTextarea.bind(this)}
 				>
 				</textarea>
+				<div>{textareaVal}</div>
+				<br />
+				<div>非受控组件</div>
+				<textarea
+					name="textareaVal2"
+					id="textareaVal2"
+					cols="160"
+					rows="10"
+					ref={(m) => { this.test = m }}
+				>
+				</textarea>
+				{/* <div>{this.refs.test.value}</div> */}
 				<br />
 				<Button
 					text="send"
 				/>
 				<div>
-state：
+   					state：
 					{test}
 				</div>
 				<div>
-props：
+					props：
 					{id}
 				</div>
 				{/* <button type="submit">123</button> */}
@@ -89,7 +114,8 @@ props：
 				 * */}
 				<button
 					type="button"
-					onClick={this.changeState.bind(this, 'abc')}
+					onClick={()=>{ this.changeState('abc') }}
+					// onClick={this.changeState.bind(this, 'abc')}
 				>
 changeState
 				</button>
