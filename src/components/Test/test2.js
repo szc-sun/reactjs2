@@ -6,26 +6,37 @@ class Test2 extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			id: '001'
+			id: '001',
+			message: ''
 		}
 	}
 
-	 changeFormCom() {
+	changeFormCom() {
 		this.setState({
 			id: '002'
 		})
 	}
 
+	handleReceiveMessage(msg) {
+		console.log('test2', msg)
+		this.setState({
+			message: msg
+		})
+	}
+
 	render() {
-		const { id } = this.state
+		const { id, message } = this.state
 		return (
 			<div className="container">
 				<h1>标题</h1>
 				<hr />
 				<div>
-					<ListCom />
+					<ListCom message={message} />
 				</div>
-				<FormCom id={id} />
+				<FormCom
+					id={id}
+					onReceiveMessage={(msg)=>{ this.handleReceiveMessage(msg) }}
+				/>
 				<button
 					type="button"
 					onClick={this.changeFormCom.bind(this)}

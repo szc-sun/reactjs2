@@ -14,7 +14,7 @@ class itemCom extends React.Component {
 			<li>
 				<div>
 					<img
-						src="http://placehold.it/50x50"
+						src={myData.img}
 						alt=""
 					/>
 				</div>

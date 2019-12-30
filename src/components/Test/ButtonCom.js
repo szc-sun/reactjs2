@@ -6,10 +6,23 @@ class Button extends React.Component {
 		this.state = {}
 	}
 
+	handleClick() {
+		const { type, onButtonClick } = this.props
+		if (type === 'submit') {
+			onButtonClick('子组件传参')
+		}
+	}
+
 	render() {
 		const { text } = this.props
+
 		return (
-			<button type="button">{text}</button>
+			<button
+				type="button"
+				onClick={this.handleClick.bind(this)}
+			>
+				{text}
+			</button>
 		)
 	}
 }

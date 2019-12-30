@@ -21,7 +21,26 @@ module.exports = {
 		// 不打印异常信息
 		// quiet: true,
 		// 开启模块热替换功能
-		hot: true
+		hot: true,
+		proxy: {
+			'/api': { // 命名
+				target: 'http://api.douban.com', // 转发地址
+				changeOrigin: true, // 允许跨域
+				pathRewrite: {
+					'^/api': ''
+				}
+			}
+		}
+		// proxy: {
+		// 	'/api': {
+		// 		// http://api.douban.com/v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10
+		// 		target: 'http://api.douban.com',
+		// 		changeOrigin: true,
+		// 		pathRewriteL: {
+		// 			'^/api': ''
+		// 		}
+		// 	}
+		// }
 	},
 	module: {
 		rules: [{

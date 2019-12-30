@@ -66,6 +66,13 @@ class formCom extends React.Component {
 		})
 	}
 
+	handleSubmit(val) {
+		const { textareaVal } = this.state
+		const { onReceiveMessage } = this.props
+		console.log(textareaVal, val)
+		onReceiveMessage(textareaVal)
+	}
+
 	render() {
 		const { id } = this.props
 		const { test, textareaVal } = this.state
@@ -97,6 +104,8 @@ class formCom extends React.Component {
 				<br />
 				<Button
 					text="send"
+					type="submit"
+					onButtonClick={(val)=>{ this.handleSubmit(val) }}
 				/>
 				<div>
    					state：
