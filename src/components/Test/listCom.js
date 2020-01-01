@@ -57,7 +57,7 @@ class listCom extends React.Component {
 	// 			console.log(comlist, this.state)
 	// 		})
 	// }
-	UNSAFE_componentWillMount = async () => {
+	componentDidMount = async () => {
 		var comlist
 		var res = await this.loadData()
 		comlist = res.data.subjects.map((item) =>(

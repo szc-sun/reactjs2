@@ -18,6 +18,7 @@ module.exports = {
 		compress: true,
 		// 配置服务端口号
 		port: 8080,
+		open: true,
 		// 不打印异常信息
 		// quiet: true,
 		// 开启模块热替换功能

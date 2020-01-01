@@ -8,7 +8,7 @@ class itemCom extends React.Component {
 	}
 
 	render() {
-		console.log(123, this.props)
+		// console.log(123, this.props)
 		const { myData } = this.props
 		return (
 			<li>

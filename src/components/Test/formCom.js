@@ -13,10 +13,22 @@ class formCom extends React.Component {
 		console.log('constructor')
 	}
 
-	// 过时的生命周期方法
-	UNSAFE_componentWillMount() {
-		console.log('UNSAFE_componentWillMount')
+	/**
+	 * static getDerivedStateFromProps(props, state)
+	 * 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用
+	 *它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。
+	 */
+	static getDerivedStateFromProps(props, state) {
+		console.log('getDerivedStateFromProps', props, state)
+		return {
+			test: 'bbb'
+		}
 	}
+
+	// // 过时的生命周期方法
+	// UNSAFE_componentWillMount() {
+	// 	console.log('UNSAFE_componentWillMount')
+	// }
 
 	componentDidMount() {
 		console.log('componentDidMount', this.test)
@@ -25,18 +37,23 @@ class formCom extends React.Component {
 		//  }, 3000)
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		console.log('UNSAFE_componentWillReceiveProps', nextProps)
-	}
+	// UNSAFE_componentWillReceiveProps(nextProps) {
+	// 	console.log('UNSAFE_componentWillReceiveProps', nextProps)
+	// }
 
 	shouldComponentUpdate(nextProps, nextState) {
 		console.log('shouldComponentUpdate', nextProps, nextState)
 		return true
 	}
 
-	UNSAFE_componentWillUpdate(nextProps, nextState) {
-		console.log('UNSAFE_componentWillUpdate', nextProps, nextState)
+	// UNSAFE_componentWillUpdate(nextProps, nextState) {
+	// 	console.log('UNSAFE_componentWillUpdate', nextProps, nextState)
+	// }
+	getSnapshotBeforeUpdate(prevProps, prevState) {
+		console.log('getSnapshotBeforeUpdate', prevProps, prevState)
+		return null
 	}
+
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		console.log('componentDidUpdate', prevProps, prevState, snapshot)
