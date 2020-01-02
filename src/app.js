@@ -1,33 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
 import './styles/app.scss'
 
 // import Home, { Mine, Search } from './components/Home'
 // import * as AAA from './components/Home'
-import Timer from './components/Test/test1'
+// import Timer from './components/Test/test1'
 // import Test2 from './components/Test/test2'
 
 // import App from './components/router/basic'
-import App from './components/redux/middleware/App'
+// import App from './components/redux/middleware/App'
 
-console.log(Timer)
+import { createStore } from 'redux'
+import App from './components/redux/react-redux/components/App'
+import postsRuducers from './components/redux/react-redux/reducers'
 
-console.log('hello~')
+const store = createStore(postsRuducers)
+// console.log(store)
 
+const el = document.getElementById('app')
 ReactDOM.render(
-	<div>
-		{/* <Home />
-		<Search />
-		<Mine /> */}
-		{/* <Test2 id="test2" /> */}
-		{/* <Timer.Timer1 title="Timer1" />
-		<Timer.Timer2 title="Timer2" />
-		<AAA.default test="aaa" />
-		<AAA.default />
-		<AAA.Search />
-		<AAA.Mine /> */}
-		<App />
-	</div>,
-	document.getElementById('app')
+	<Provider store={store}>
+		<App></App>
+	</Provider>,
+	el
 )
+  	store.dispatch({
+  		type: 'ADD_POST',
+  		payload: { id: '001', title: '321' }
+  	})
+  	store.dispatch({
+  		type: 'ADD_POST',
+  		payload: { id: '002', title: '666' }
+  	})
