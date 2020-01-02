@@ -8,7 +8,8 @@ import './styles/app.scss'
 import Timer from './components/Test/test1'
 // import Test2 from './components/Test/test2'
 
-import App from './components/router/basic'
+// import App from './components/router/basic'
+import App from './components/redux/middleware/App'
 
 console.log(Timer)
 
